@@ -1,0 +1,13 @@
+ul#list {
+    list-style: none;
+    columns: 5;
+}
+
+
+li {
+    width: 240px
+    height: 240px;
+    padding: 2px;
+    display: flex;
+    flex-flow: column;
+}

@@ -1,0 +1,21 @@
+[Unit]
+Description=Svalka
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+#PIDFile=/work/www/myunit/shared/tmp/pids/svalka.pid
+WorkingDirectory=/home/viorn/svalka
+SuccessExitStatus=143
+
+User=viorn
+Group=viorn
+
+#Environment="JAVA_HOME=/path/to/jvmdir"
+
+ExecStart=/usr/bin/java -Xms256m -Xmx512m -server -jar ru.taganhorn.svalka-all.jar -port=8100
+ExecStop=/bin/kill -15 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
